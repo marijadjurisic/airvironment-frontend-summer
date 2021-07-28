@@ -3,5 +3,22 @@
 .app {
   background: $background;
   width: 100vw;
-  height: calc(100vh - 45px);
+  min-height: 100vh;
+  font-family: $roboto;
+  color: white;
+
+  a {
+    text-decoration: unset;
+    color: inherit;
+  }
+
+  .container {
+    position: absolute;
+    display: block;
+    margin-top: 81px;
+    max-height: calc(100vh - 81px);
+    width: 100vw;
+    overflow: auto;
+    align-items: center;
+  }
 }
