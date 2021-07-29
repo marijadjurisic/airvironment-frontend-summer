@@ -10,10 +10,7 @@ const Header = () => {
           <span className="capital">AIR</span>vironment
         </Link>
       </div>
-      <div className="navigation">
-        <span>All data</span>
-        <span>Averages</span>
-      </div>
+      <div className="navigation"></div>
     </div>
   );
 };
