@@ -1,29 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { MeasurementCard } from "../components/index";
+import { loadAverageValues } from "../redux/actions/averageActions";
+import { connect } from "react-redux";
+import "../assets/styles/pages/Averages.scss";
 
-function Averages() {
-  const [fetchData, setFetchData] = useState({});
+function Averages({ averageValues, getAverageValues }) {
   useEffect(() => {
-    fetch("https://airvironment.live/api/measurements").then((response) =>
-      response.json().then((r) => setFetchData(r.response))
-    );
-  }, []);
-  console.log(fetchData);
-  const data = {
-    title: "Wed",
-    subtitle: "24. Jul 2021",
-    minTemp: 14,
-    maxTemp: 30,
-    minHum: 12,
-    maxHum: 40,
-    minPol: 0.1,
-    maxPol: 0.3,
-  };
+    const params = {
+      all: true,
+    };
+    getAverageValues(params);
+    console.log(averageValues);
+  }, [getAverageValues]);
 
-  return fetchData.length ? (
+  return averageValues ? (
     <div className="averages-container">
-      {fetchData.map((card) => (
-        <MeasurementCard data={data} fetchData={card} key={card.id} />
+      {averageValues.map((averageValue) => (
+        <MeasurementCard averageValue={averageValue} key={averageValue.date} />
       ))}
     </div>
   ) : (
@@ -31,4 +24,14 @@ function Averages() {
   );
 }
 
-export default Averages;
+function mapStateToProps(state) {
+  return {
+    averageValues: state.averageValues ? state.averageValues : [],
+  };
+}
+
+const mapDispatchToProps = {
+  getAverageValues: loadAverageValues,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Averages);
