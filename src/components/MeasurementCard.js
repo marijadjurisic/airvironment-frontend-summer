@@ -1,5 +1,6 @@
 import React from "react";
 import "../assets/styles/components/MeasurementCard.scss";
+import moment from "moment";
 import {
   TemperatureSmallIcon,
   HumiditySmallIcon,
@@ -8,13 +9,17 @@ import {
   LowValueIcon,
 } from "../assets/icons/index";
 
-function MeasurementCard({ data, fetchData }) {
-  console.log(fetchData);
+function MeasurementCard({ averageValue }) {
+  console.log(averageValue);
   return (
     <div className="average-card-container-root">
       <div className="average-card-container">
-        <span className="card-title">{data.title}</span>
-        <span className="card-subtitle">{data.subtitle}</span>
+        <span className="card-title">
+          {moment(averageValue.date, "DD.M.YYYY.").format("ddd")}
+        </span>
+        <span className="card-subtitle">
+          {moment(averageValue.date, "DD.M.YYYY.").format("DD. MMM. YYYY")}
+        </span>
         <hr />
         <div className="card-value-row">
           <div className="left-section section">
@@ -25,18 +30,18 @@ function MeasurementCard({ data, fetchData }) {
               <div className="left-section-content-right">
                 <div className="value-container">
                   <HighValueIcon />
-                  <span>{data.maxTemp}C&deg;</span>
+                  <span>{averageValue.maxTemperature}C&deg;</span>
                 </div>
                 <div className="value-container">
                   <LowValueIcon />
-                  <span>{data.minTemp}C&deg;</span>
+                  <span>{averageValue.minTemperature}C&deg;</span>
                 </div>
               </div>
             </div>
           </div>
           <div className="right-section section">
             <div className="right-section-content">
-              <span>/ {fetchData.temperature}C&deg;</span>
+              <span>/ {averageValue.averageTemperature}C&deg;</span>
             </div>
           </div>
         </div>
@@ -49,18 +54,18 @@ function MeasurementCard({ data, fetchData }) {
               <div className="left-section-content-right">
                 <div className="value-container">
                   <HighValueIcon />
-                  <span>{data.maxHum}%</span>
+                  <span>{averageValue.maxHumidity}%</span>
                 </div>
                 <div className="value-container">
                   <LowValueIcon />
-                  <span>{data.minHum}%</span>
+                  <span>{averageValue.minHumidity}%</span>
                 </div>
               </div>
             </div>
           </div>
           <div className="right-section section">
             <div className="right-section-content">
-              <span>/ {fetchData.humidity}%</span>
+              <span>/ {averageValue.humidity}%</span>
             </div>
           </div>
         </div>
@@ -75,14 +80,14 @@ function MeasurementCard({ data, fetchData }) {
                   <div className="value-container pollution-value-container">
                     <HighValueIcon />
                     <span>
-                      {data.maxPol}
+                      {averageValue.maxPollution}
                       <sub className="left-section-sub">ppb</sub>
                     </span>
                   </div>
                   <div className="value-container pollution-value-container">
                     <LowValueIcon />
                     <span>
-                      {data.minPol}
+                      {averageValue.minPollution}
                       <sub className="left-section-sub">ppb</sub>
                     </span>
                   </div>
@@ -92,7 +97,7 @@ function MeasurementCard({ data, fetchData }) {
             <div className="right-section section">
               <div className="right-section-content">
                 <span>
-                  / {fetchData.pollution}
+                  / {averageValue.pollution}
                   <sub className="sub-pollution">ppb</sub>
                 </span>
               </div>

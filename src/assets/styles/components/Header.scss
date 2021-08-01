@@ -41,3 +41,10 @@
     }
   }
 }
+
+@media screen and (max-width: $mobile) {
+  .header {
+    height: 104px;
+    @include flex(column, center);
+  }
+}
