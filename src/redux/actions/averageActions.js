@@ -38,7 +38,6 @@ export function loadAverageValues(params) {
     return measurementsApi
       .getMeasurements(params)
       .then((response) => {
-        debugger;
         dispatch(loadAverageValuesSuccess(response));
       })
       .catch((error) => {
