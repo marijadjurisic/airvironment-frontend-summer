@@ -78,15 +78,11 @@ function AverageCard({ averageValue }) {
                 <div className="left-section-content-right">
                   <div className="value-container pollution-value-container">
                     <HighValueIcon />
-                    <span>
-                      {averageValue.maxPollution}ppb
-                    </span>
+                    <span>{averageValue.maxPollution}ppb</span>
                   </div>
                   <div className="value-container pollution-value-container">
                     <LowValueIcon />
-                    <span>
-                      {averageValue.minPollution}ppb
-                    </span>
+                    <span>{averageValue.minPollution}ppb</span>
                   </div>
                 </div>
               </div>
