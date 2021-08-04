@@ -15,10 +15,20 @@
   .container {
     position: absolute;
     display: block;
-    margin-top: 81px;
+    margin-top: $container-margin;
     max-height: calc(100vh - 81px);
-    width: 100vw;
+    width: 100%;
     overflow: auto;
     align-items: center;
+    .averages-container, .all-data-container {
+      margin-top: 64px;
+    }
+    @media screen and (max-width: $mobile) {
+      margin-top: $mobile-container-margin;
+      max-height: calc(100vh - 105px);
+      .averages-container, .all-data-container {
+        margin-top: 48px;
+      }
+    }
   }
 }

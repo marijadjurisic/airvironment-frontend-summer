@@ -1,7 +1,7 @@
 @import "../mixins";
 
 .average-card-container {
-  margin: 12px;
+  margin: 0 12px 24px;
   width: 180px;
   height: 220px;
   color: white;
@@ -57,7 +57,7 @@
         }
 
         .left-section-content-right {
-          width: calc(50% + 10px);
+          width: calc(50% + 14px);
           height: inherit;
           margin: 0;
           @include flex(column);
@@ -78,12 +78,6 @@
               .left-section-sub {
                 font-size: 10px;
               }
-            }
-          }
-
-          .pollution-value-container {
-            span {
-              padding-top: 3px;
             }
           }
         }

@@ -1,4 +1,4 @@
 import Header from "./Header";
-import MeasurementCard from "./MeasurementCard";
+import AverageCard from "./AverageCard";
 
-export { Header, MeasurementCard };
+export { Header, AverageCard };
