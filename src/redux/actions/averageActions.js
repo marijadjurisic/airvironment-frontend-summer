@@ -42,7 +42,7 @@ export function loadAverageValues(params) {
       })
       .catch((error) => {
         dispatch(loadAverageValuesFailure(JSON.parse(error.message)));
-        console.log("Error loading average values.");
+        alert("Error loading average values.");
       });
   };
 }

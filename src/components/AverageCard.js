@@ -9,8 +9,7 @@ import {
   LowValueIcon,
 } from "../assets/icons/index";
 
-function MeasurementCard({ averageValue }) {
-  console.log(averageValue);
+function AverageCard({ averageValue }) {
   return (
     <div className="average-card-container-root">
       <div className="average-card-container">
@@ -65,7 +64,7 @@ function MeasurementCard({ averageValue }) {
           </div>
           <div className="right-section section">
             <div className="right-section-content">
-              <span>/ {averageValue.humidity}%</span>
+              <span>/ {averageValue.averageHumidity}%</span>
             </div>
           </div>
         </div>
@@ -80,15 +79,13 @@ function MeasurementCard({ averageValue }) {
                   <div className="value-container pollution-value-container">
                     <HighValueIcon />
                     <span>
-                      {averageValue.maxPollution}
-                      <sub className="left-section-sub">ppb</sub>
+                      {averageValue.maxPollution}ppb
                     </span>
                   </div>
                   <div className="value-container pollution-value-container">
                     <LowValueIcon />
                     <span>
-                      {averageValue.minPollution}
-                      <sub className="left-section-sub">ppb</sub>
+                      {averageValue.minPollution}ppb
                     </span>
                   </div>
                 </div>
@@ -97,8 +94,8 @@ function MeasurementCard({ averageValue }) {
             <div className="right-section section">
               <div className="right-section-content">
                 <span>
-                  / {averageValue.pollution}
-                  <sub className="sub-pollution">ppb</sub>
+                  / {averageValue.averagePollution}
+                  <span className="sub-pollution">ppb</span>
                 </span>
               </div>
             </div>
@@ -109,4 +106,4 @@ function MeasurementCard({ averageValue }) {
   );
 }
 
-export default MeasurementCard;
+export default AverageCard;

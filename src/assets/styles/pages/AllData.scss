@@ -1,0 +1,6 @@
+@import "../mixins";
+
+.all-data-container {
+  width: fit-content;
+  @include flex(row, center, unset, wrap);
+}
