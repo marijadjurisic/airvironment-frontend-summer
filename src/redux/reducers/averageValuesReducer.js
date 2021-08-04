@@ -18,7 +18,6 @@ export default function AverageValuesReducer(
     case types.AVERAGE_MEASUREMENTS_REQUEST:
       return state;
     case types.AVERAGE_MEASUREMENTS_SUCCESS:
-      debugger;
       action.response.forEach((response) => {
         response.date = moment(response.created).format(DATE_FORMAT);
       });
@@ -45,7 +44,6 @@ export default function AverageValuesReducer(
         }
 
         return {
-          test: "test",
           minTemperature: getExtreme(
             data,
             DATA_PARAMS.temperature,

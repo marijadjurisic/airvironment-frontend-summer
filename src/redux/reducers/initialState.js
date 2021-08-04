@@ -1,3 +1,3 @@
-const initialState = { averageValues: [] };
+const initialState = { averageValues: [], measurements: [] };
 
 export default initialState;

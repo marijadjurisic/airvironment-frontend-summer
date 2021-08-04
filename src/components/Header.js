@@ -19,6 +19,12 @@ const Header = () => {
         >
           <Link to="/averages">Averages</Link>
         </span>
+          <span
+              className={pathname === "/all-data" ? "" : "not-active"}
+              onClick={() => setPathname("/all-data")}
+          >
+          <Link to="/all-data">All data</Link>
+        </span>
       </div>
     </div>
   );
