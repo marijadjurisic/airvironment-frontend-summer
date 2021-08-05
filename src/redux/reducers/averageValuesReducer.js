@@ -15,8 +15,6 @@ export default function AverageValuesReducer(
   };
 
   switch (action.type) {
-    case types.AVERAGE_MEASUREMENTS_REQUEST:
-      return state;
     case types.AVERAGE_MEASUREMENTS_SUCCESS:
       action.response.forEach((response) => {
         response.date = moment(response.created).format(DATE_FORMAT);

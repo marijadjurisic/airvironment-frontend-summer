@@ -14,8 +14,7 @@ const AllDataCardRow = ({ hour }) => {
         &deg;C
       </div>
       <div className="values">
-        {isSmallScreen ? Math.round(hour.humidity) : hour.humidity}
-        %
+        {isSmallScreen ? Math.round(hour.humidity) : hour.humidity}%
       </div>
       <div className="values">
         {isSmallScreen
