@@ -1,6 +1,6 @@
 import React from "react";
 
-function ConfirmFilter({ className = "" }) {
+function ConfirmFilter({ className = "", onClick = null }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,6 +8,7 @@ function ConfirmFilter({ className = "" }) {
       height="36"
       viewBox="0 0 36 36"
       className={className}
+      onClick={onClick}
     >
       <g
         id="comfirm_filter"

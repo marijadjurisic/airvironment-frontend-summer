@@ -1,0 +1,213 @@
+@import "../variables";
+
+.filter {
+  height: 128px;
+  background-color: $color-white;
+  display: flex;
+  top: 80px;
+  position: relative;
+  box-sizing: unset;
+  width: 100vw;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  .filterName {
+    margin-left: 20px;
+    font-family: $roboto;
+    color: $color-green;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  > div {
+    margin-top: 22px;
+  }
+
+  .filter-items-wrapper {
+    display: flex;
+    width: 1404px;
+    margin: auto;
+    padding-left: 32px;
+    flex-wrap: wrap;
+
+    .date-wrapper {
+      display: flex;
+      margin-right: 32px;
+      flex-wrap: wrap;
+
+      .filterData {
+        color: $color-green;
+        height: 58px;
+        width: 140px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-right: 32px;
+
+        .slideDown {
+          margin-top: 0;
+          position: relative;
+          background: $color-green;
+          border-radius: 50px;
+        }
+
+        .filterChoice {
+          background: transparent;
+          color: $color-white;
+          border-radius: 17px;
+          border: 0;
+          height: 32px;
+          width: calc(100% - 16px);
+          padding-left: 16px;
+        }
+
+        input:focus,
+        select:focus {
+          outline: none;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+          background: transparent;
+          bottom: 0;
+          color: transparent;
+          cursor: pointer;
+          height: auto;
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: auto;
+        }
+
+        .iconSlideDown {
+          position: absolute;
+          right: 0;
+        }
+      }
+
+      .filterData:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .slider {
+      margin-right: 32px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #filters {
+      width: 192px;
+      height: 72px;
+
+      .filtersContainer {
+        background: $color-white;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .checkedIcon {
+    position: absolute;
+    right: 18px;
+    margin-top: 46px;
+  }
+
+  select {
+    font-size: 16px;
+    background: $color-green;
+    font-family: $roboto;
+    color: $color-white;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    border: unset;
+    appearance: none;
+  }
+
+  input[type="date"] {
+    font-size: 16px;
+    margin-left: auto;
+    font-family: $roboto;
+  }
+
+  .unstyled::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    margin-right: 5px;
+  }
+
+  .slider {
+    width: 288px;
+    display: unset;
+
+    .MuiSlider-valueLabel {
+      transform: rotate(180deg) !important;
+      top: -8px;
+    }
+
+    span {
+      color: $color-green;
+    }
+    .MuiSlider-thumb span span {
+      color: $color-white;
+    }
+    .MuiSlider-valueLabel span span {
+      color: $color-green;
+      transform: rotate(225deg) !important;
+    }
+  }
+}
+
+@media screen and (max-width: 968px) {
+  .filter {
+    height: 216px;
+
+    .checkedIcon {
+      bottom: 24px;
+    }
+
+    .filter-items-wrapper {
+      margin-top: 32px;
+      .iconsWrapper {
+        margin-top: 38px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .filter {
+    height: 267px;
+    position: absolute;
+    margin-top: 24px;
+    z-index: 99;
+    .filterName {
+      margin: 0 auto;
+    }
+
+    .filter-items-wrapper {
+      margin: auto;
+      width: fit-content;
+      flex-direction: column;
+      padding: 0;
+
+      .iconsWrapper {
+        margin: 0 auto;
+        width: fit-content;
+      }
+
+      .date-wrapper {
+        margin: 0;
+      }
+
+      .slider {
+        margin: 16px auto;
+      }
+    }
+  }
+  #filters {
+    text-align: center;
+  }
+}

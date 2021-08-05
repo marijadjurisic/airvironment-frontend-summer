@@ -9,7 +9,7 @@ import {
   LowValueIcon,
 } from "../assets/icons/index";
 
-function AverageCard({ averageValue }) {
+function AverageCard({ averageValue, filters }) {
   return (
     <div className="average-card-container-root">
       <div className="average-card-container">
@@ -20,55 +20,59 @@ function AverageCard({ averageValue }) {
           {moment(averageValue.date, "DD.M.YYYY.").format("DD. MMM. YYYY")}
         </span>
         <hr />
-        <div className="card-value-row">
-          <div className="left-section section">
-            <div className="left-section-content">
-              <div className="image-left">
-                <TemperatureSmallIcon />
-              </div>
-              <div className="left-section-content-right">
-                <div className="value-container">
-                  <HighValueIcon />
-                  <span>{averageValue.maxTemperature}C&deg;</span>
+        {filters.temperature && (
+          <div className="card-value-row">
+            <div className="left-section section">
+              <div className="left-section-content">
+                <div className="image-left">
+                  <TemperatureSmallIcon />
                 </div>
-                <div className="value-container">
-                  <LowValueIcon />
-                  <span>{averageValue.minTemperature}C&deg;</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="right-section section">
-            <div className="right-section-content">
-              <span>/ {averageValue.averageTemperature}C&deg;</span>
-            </div>
-          </div>
-        </div>
-        <div className="card-value-row">
-          <div className="left-section section">
-            <div className="left-section-content">
-              <div className="image-left">
-                <HumiditySmallIcon />
-              </div>
-              <div className="left-section-content-right">
-                <div className="value-container">
-                  <HighValueIcon />
-                  <span>{averageValue.maxHumidity}%</span>
-                </div>
-                <div className="value-container">
-                  <LowValueIcon />
-                  <span>{averageValue.minHumidity}%</span>
+                <div className="left-section-content-right">
+                  <div className="value-container">
+                    <HighValueIcon />
+                    <span>{averageValue.maxTemperature}C&deg;</span>
+                  </div>
+                  <div className="value-container">
+                    <LowValueIcon />
+                    <span>{averageValue.minTemperature}C&deg;</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="right-section section">
-            <div className="right-section-content">
-              <span>/ {averageValue.averageHumidity}%</span>
+            <div className="right-section section">
+              <div className="right-section-content">
+                <span>/ {averageValue.averageTemperature}C&deg;</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div>
+        )}
+        {filters.humidity && (
+          <div className="card-value-row">
+            <div className="left-section section">
+              <div className="left-section-content">
+                <div className="image-left">
+                  <HumiditySmallIcon />
+                </div>
+                <div className="left-section-content-right">
+                  <div className="value-container">
+                    <HighValueIcon />
+                    <span>{averageValue.maxHumidity}%</span>
+                  </div>
+                  <div className="value-container">
+                    <LowValueIcon />
+                    <span>{averageValue.minHumidity}%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="right-section section">
+              <div className="right-section-content">
+                <span>/ {averageValue.averageHumidity}%</span>
+              </div>
+            </div>
+          </div>
+        )}
+        {filters.pollution && (
           <div className="card-value-row">
             <div className="left-section section">
               <div className="left-section-content">
@@ -96,7 +100,7 @@ function AverageCard({ averageValue }) {
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
