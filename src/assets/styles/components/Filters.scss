@@ -48,20 +48,41 @@
         .slideDown {
           margin-top: 0;
           position: relative;
+          background: $color-green;
+          border-radius: 50px;
         }
 
         .filterChoice {
-          background: #10beb8;
+          background: transparent;
           color: $color-white;
           border-radius: 17px;
           border: 0;
           height: 32px;
-          width: 100%;
+          width: calc(100% - 16px);
+          padding-left: 16px;
+        }
+
+        input:focus,
+        select:focus {
+          outline: none;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+          background: transparent;
+          bottom: 0;
+          color: transparent;
+          cursor: pointer;
+          height: auto;
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: auto;
         }
 
         .iconSlideDown {
           position: absolute;
-          right: 9px;
+          right: 0;
         }
       }
 
@@ -96,7 +117,7 @@
 
   select {
     font-size: 16px;
-    background: #10beb8;
+    background: $color-green;
     font-family: $roboto;
     color: $color-white;
     border-radius: inherit;
