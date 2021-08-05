@@ -37,7 +37,7 @@ const Header = () => {
           />
         )}
       </div>
-      {filters && <Filters />}
+      {filters && <Filters setFilters={setFilters} />}
     </>
   );
 };
