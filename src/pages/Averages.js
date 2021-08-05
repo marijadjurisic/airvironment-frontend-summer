@@ -14,20 +14,21 @@ function Averages({ averageValues, getAverageValues, filters }) {
 
   return (
     <div className="averages-container">
-      {averageValues.map((averageValue) => (
-        <AverageCard
-          averageValue={averageValue}
-          key={averageValue.date}
-          filters={filters}
-        />
-      ))}
+      {averageValues &&
+        averageValues.map((averageValue) => (
+          <AverageCard
+            averageValue={averageValue}
+            key={averageValue.date}
+            filters={filters}
+          />
+        ))}
     </div>
   );
 }
 
 function mapStateToProps(state) {
   return {
-    averageValues: state.averageValues,
+    averageValues: state.averageValues ?? [],
     filters: state.selectedTypes,
   };
 }
