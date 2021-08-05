@@ -11,6 +11,16 @@
   flex-wrap: wrap;
   justify-content: flex-start;
 
+
+  .filterName {
+    margin-left: 20px;
+    font-family: $roboto;
+    color: $color-green;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
   > div {
     margin-top: 22px;
   }
@@ -35,15 +45,6 @@
         flex-direction: column;
         justify-content: space-between;
         margin-right: 32px;
-
-        .filterName {
-          margin-left: 20px;
-          font-family: $roboto;
-          color: $background;
-          font-size: 14px;
-          text-transform: uppercase;
-          font-weight: bold;
-        }
 
         .slideDown {
           margin-top: 0;
@@ -72,6 +73,8 @@
 
     .slider {
       margin-right: 32px;
+      display: flex;
+      flex-direction: column;
     }
 
     #filters {
@@ -88,7 +91,7 @@
 
   .checkedIcon {
     position: absolute;
-    right: 15px;
+    right: 18px;
     margin-top: 46px;
   }
 
@@ -127,9 +130,11 @@
     span {
       color: $color-green;
     }
-
-    .MuiSlider-valueLabel span span {
+    .MuiSlider-thumb span span {
       color: $color-white;
+    }
+    .MuiSlider-valueLabel span span {
+      color: $color-green;
       transform: rotate(225deg) !important;
     }
   }
@@ -139,39 +144,50 @@
   .filter {
     height: 216px;
 
-    .filter-items-wrapper {
-      margin-top: 32px;
-    }
-
-    .iconsWrapper {
-      margin-top: 12px;
-    }
-
     .checkedIcon {
       bottom: 24px;
+    }
+
+    .filter-items-wrapper {
+      margin-top: 32px;
+      .iconsWrapper {
+        margin-top: 38px;
+      }
     }
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
   .filter {
     height: 267px;
     position: absolute;
     margin-top: 24px;
     z-index: 99;
+    .filterName {
+      margin: 0 auto;
+    }
 
     .filter-items-wrapper {
       margin: auto;
       width: fit-content;
       flex-direction: column;
-
-      .slider {
-        margin-top: 16px;
-      }
+      padding: 0;
 
       .iconsWrapper {
-        margin-top: 16px;
+        margin: 0 auto;
+        width: fit-content;
+      }
+
+      .date-wrapper {
+        margin: 0;
+      }
+
+      .slider {
+        margin: 16px auto;
       }
     }
+  }
+  #filters {
+    text-align: center;
   }
 }
