@@ -1,6 +1,6 @@
 import React from "react";
 
-function OpenFilter({ className = "" }) {
+function OpenFilter({ className, onClick }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,6 +8,7 @@ function OpenFilter({ className = "" }) {
       height="36"
       viewBox="0 0 36 36"
       className={className}
+      onClick={onClick}
     >
       <g
         id="open_filter"

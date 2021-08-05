@@ -1,21 +1,18 @@
 import * as types from "./actionTypes";
 import * as measurementsApi from "../../api/measurements";
 
-export function loadMeasurementsRequest() {
-  return { type: types.MEASUREMENTS_LOAD_REQUEST };
-}
+const loadMeasurementsSuccess = (response) => ({
+  type: types.MEASUREMENTS_LOAD_SUCCESS,
+  response,
+});
 
-export function loadMeasurementsSuccess(response) {
-  return { type: types.MEASUREMENTS_LOAD_SUCCESS, response };
-}
-
-export function loadMeasurementsFailure(error) {
-  return { type: types.MEASUREMENTS_LOAD_FAILURE, error };
-}
+const loadMeasurementsFailure = (error) => ({
+  type: types.MEASUREMENTS_LOAD_FAILURE,
+  error,
+});
 
 export function loadMeasurements(params) {
   return function (dispatch) {
-    dispatch(loadMeasurementsRequest());
     return measurementsApi
       .getMeasurements(params)
       .then((response) => {
