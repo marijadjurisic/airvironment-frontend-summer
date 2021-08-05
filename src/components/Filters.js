@@ -55,7 +55,7 @@ const Filters = ({
         <div className="date-wrapper">
           <div className="filterData" id="range">
             <span className="filterName">Date</span>
-            <div className="slideDown" style={{ position: "relative" }}>
+            <div className="slideDown">
               <DropDown className="iconSlideDown" />
               <input
                 className="filterChoice unstyled"
@@ -77,9 +77,10 @@ const Filters = ({
           </div>
           <div className="filterData">
             <span className="filterName">Range</span>
-            <div className="filterChoice" style={{ position: "relative" }}>
+            <div className="slideDown">
               <DropDown className="iconSlideDown" />
               <select
+                className="filterChoice"
                 onChange={(event) => {
                   let newDate = moment(params.date_to, "YYYY-MM-DD")
                     .subtract(Number(event.target.value), "days")
