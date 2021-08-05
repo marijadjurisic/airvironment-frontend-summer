@@ -1,10 +1,6 @@
 import React from "react";
 import "../assets/styles/components/AllDataCard.scss";
-import {
-  TemperatureIcon,
-  HumidityIcon,
-  PollutionIcon,
-} from "../assets/icons";
+import { TemperatureIcon, HumidityIcon, PollutionIcon } from "../assets/icons";
 import useDates from "../hooks/useDates";
 import AllDataCardRow from "./AllDataCardRow";
 
