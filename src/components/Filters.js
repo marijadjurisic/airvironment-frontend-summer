@@ -32,24 +32,47 @@ const Filters = ({
     setValue(newValue);
   };
   const valuetext = (value) => `${value}h`;
-  console.log(value);
 
+  let daysOffset = 1;
   const [params, setParams] = useState({
     all: true,
-    date_from: moment().startOf("day"),
-    date_to: null,
+    date_from: moment().startOf("day").format("YYYY-MM-DD"),
+    date_to: moment()
+      .startOf("day")
+      .subtract(daysOffset, "d")
+      .format("YYYY-MM-DD"),
   });
 
   return (
     <div className="filter">
       <div className="filterData" id="range">
-        <span className="filterName">Date</span>
+        <span
+          className="filterName"
+          onClick={() => {
+            console.log(params);
+          }}
+        >
+          Date
+        </span>
         <div className="slideDown" style={{ position: "relative" }}>
           <DropDown className="iconSlideDown" />
           <input
             className="filterChoice unstyled"
             type="date"
             defaultValue={todayDate}
+            max={todayDate}
+            onChange={(event) => {
+              let newDateFrom = moment(event.target.value, "YYYY-MM-DD").format(
+                "YYYY-MM-DD"
+              );
+              setParams({
+                ...params,
+                date_from: newDateFrom,
+                date_to: moment(params.date_from, "YYYY-MM-DD")
+                  .subtract(daysOffset)
+                  .format("YYYY-MM-DD"),
+              });
+            }}
           />
         </div>
       </div>
@@ -57,7 +80,16 @@ const Filters = ({
         <span className="filterName">Range</span>
         <div className="filterChoice" style={{ position: "relative" }}>
           <DropDown className="iconSlideDown" />
-          <select>
+          <select
+            onChange={(event) => {
+              let newDate = moment(params.date_from, "YYYY-MM-DD")
+                .subtract(event.target.value, "d")
+                .format("YYYY-MM-DD");
+              console.log(newDate);
+              daysOffset = Number(event.target.value);
+              setParams({ ...params, date_to: newDate });
+            }}
+          >
             <option value="1">1</option>
             <option value="7">7</option>
             <option value="30">30</option>
